@@ -26,7 +26,7 @@
     "show:docs": "open docs/index.html",
     "prepublishOnly": "npm run test && npm run build",
     "deploy:demo": "npm run build && npm run build:docs && cd demo && npm run build && npm run deploy",
-    "postinstall": "rimraf lib && tsc"
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
