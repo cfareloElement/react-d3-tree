@@ -2,7 +2,14 @@ import React, { SyntheticEvent } from 'react';
 import { HierarchyPointNode } from 'd3-hierarchy';
 import { select } from 'd3-selection';
 
-import { Orientation, Point, TreeNodeDatum, RawNodeDatum, RenderCustomNodeElementFn, AddChildrenFunction } from '../types/common';
+import {
+  Orientation,
+  Point,
+  TreeNodeDatum,
+  RawNodeDatum,
+  RenderCustomNodeElementFn,
+  AddChildrenFunction,
+} from '../types/common';
 import DefaultNodeElement from './DefaultNodeElement';
 
 type NodeEventHandler = (id: string, evt: SyntheticEvent) => void;
@@ -117,7 +124,11 @@ export default class Node extends React.Component<NodeProps, NodeState> {
   renderNodeElement = () => {
     const { data, renderCustomNodeElement } = this.props;
     if (typeof renderCustomNodeElement === 'function') {
-      return renderCustomNodeElement({ nodeDatum: data, toggleNode: this.handleNodeToggle });
+      return renderCustomNodeElement({
+        nodeDatum: data,
+        toggleNode: this.handleNodeToggle,
+        addChildren: this.handleAddChildren,
+      });
     }
 
     return DefaultNodeElement({
