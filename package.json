@@ -25,7 +25,8 @@
     "show:cov": "open coverage/lcov-report/index.html",
     "show:docs": "open docs/index.html",
     "prepublishOnly": "npm run test && npm run build",
-    "deploy:demo": "npm run build && npm run build:docs && cd demo && npm run build && npm run deploy"
+    "deploy:demo": "npm run build && npm run build:docs && cd demo && npm run build && npm run deploy",
+    "postinstall": "rimraf lib && tsc"
   },
   "repository": {
     "type": "git",
