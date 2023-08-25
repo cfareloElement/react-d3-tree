@@ -5,9 +5,9 @@
   "author": "Ben Kremer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bkrem/react-d3-tree/issues"
+    "url": "https://github.com/cfareloElement/react-d3-tree/issues"
   },
-  "homepage": "https://github.com/bkrem/react-d3-tree",
+  "homepage": "https://github.com/cfareloElement/react-d3-tree",
   "files": [
     "lib"
   ],
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bkrem/react-d3-tree.git"
+    "url": "https://github.com/cfareloElement/react-d3-tree.git"
   },
   "keywords": [
     "react",
