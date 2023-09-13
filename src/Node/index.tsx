@@ -9,6 +9,7 @@ import {
   RawNodeDatum,
   RenderCustomNodeElementFn,
   AddChildrenFunction,
+  ClickCircleFunction,
 } from '../types/common';
 import DefaultNodeElement from './DefaultNodeElement';
 
@@ -31,7 +32,8 @@ type NodeProps = {
   onNodeClick: NodeEventHandler;
   onNodeMouseOver: NodeEventHandler;
   onNodeMouseOut: NodeEventHandler;
-  handleAddChildrenToNode: (nodeId: string, children: RawNodeDatum[]) => void;
+  handleAddChildrenToNode: (nodeId: string, children: RawNodeDatum[]) => TreeNodeDatum[];
+  handleGetData: () => TreeNodeDatum[];
   subscriptions: object;
 };
 
@@ -128,6 +130,7 @@ export default class Node extends React.Component<NodeProps, NodeState> {
         nodeDatum: data,
         toggleNode: this.handleNodeToggle,
         addChildren: this.handleAddChildren,
+        clickCircle: this.handleClickCircle,
       });
     }
 
@@ -138,6 +141,7 @@ export default class Node extends React.Component<NodeProps, NodeState> {
       onNodeMouseOver: this.handleOnMouseOver,
       onNodeMouseOut: this.handleOnMouseOut,
       addChildren: this.handleAddChildren,
+      clickCircle: this.handleClickCircle,
     });
   };
 
@@ -156,7 +160,11 @@ export default class Node extends React.Component<NodeProps, NodeState> {
   };
 
   handleAddChildren: AddChildrenFunction = childrenData => {
-    this.props.handleAddChildrenToNode(this.props.data.__rd3t.id, childrenData);
+    return this.props.handleAddChildrenToNode(this.props.data.__rd3t.id, childrenData);
+  };
+
+  handleClickCircle: ClickCircleFunction = () => {
+    return this.props.handleGetData();
   };
 
   componentWillLeave(done) {

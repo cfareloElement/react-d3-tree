@@ -33,7 +33,8 @@ export type PathFunction = (link: TreeLinkDatum, orientation: Orientation) => st
 export type PathClassFunction = PathFunction;
 
 export type SyntheticEventHandler = (evt: SyntheticEvent) => void;
-export type AddChildrenFunction = (children: RawNodeDatum[]) => void;
+export type AddChildrenFunction = (children: RawNodeDatum[]) => TreeNodeDatum[];
+export type ClickCircleFunction = () => TreeNodeDatum[];
 
 /**
  * The properties that are passed to the user-defined `renderCustomNodeElement` render function.
@@ -51,6 +52,7 @@ export interface CustomNodeElementProps {
    */
   toggleNode: () => void;
   addChildren: AddChildrenFunction;
+  clickCircle: ClickCircleFunction;
 }
 
 export type RenderCustomNodeElementFn = (rd3tNodeProps: CustomNodeElementProps) => JSX.Element;

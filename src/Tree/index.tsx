@@ -320,9 +320,13 @@ class Tree extends React.Component<TreeProps, TreeState> {
       targetNodeDatum.children.push(...formattedChildren.flat());
 
       this.setState({ data });
+      return data;
     }
   };
 
+  handleGetData = () => {
+    return this.state.data;
+  };
   /**
    * Handles the user-defined `onNodeClick` function.
    */
@@ -550,6 +554,7 @@ class Tree extends React.Component<TreeProps, TreeState> {
                   onNodeMouseOver={this.handleOnNodeMouseOverCb}
                   onNodeMouseOut={this.handleOnNodeMouseOutCb}
                   handleAddChildrenToNode={this.handleAddChildrenToNode}
+                  handleGetData={this.handleGetData}
                   subscriptions={subscriptions}
                 />
               );
