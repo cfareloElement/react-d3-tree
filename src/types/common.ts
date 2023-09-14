@@ -33,7 +33,7 @@ export type PathFunction = (link: TreeLinkDatum, orientation: Orientation) => st
 export type PathClassFunction = PathFunction;
 
 export type SyntheticEventHandler = (evt: SyntheticEvent) => void;
-export type AddChildrenFunction = (children: RawNodeDatum[]) => TreeNodeDatum[];
+export type AddChildrenFunction = (children: RawNodeDatum[]) => void;
 export type ClickCircleFunction = () => TreeNodeDatum[];
 
 /**
@@ -44,6 +44,10 @@ export interface CustomNodeElementProps {
    * The full datum of the node that is being rendered.
    */
   nodeDatum: TreeNodeDatum;
+  /**
+   * The updated tree data.
+   */
+  treeData: TreeNodeDatum[];
   /**
    * Toggles the expanded/collapsed state of the node.
    *

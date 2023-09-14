@@ -320,7 +320,6 @@ class Tree extends React.Component<TreeProps, TreeState> {
       targetNodeDatum.children.push(...formattedChildren.flat());
 
       this.setState({ data });
-      return data;
     }
   };
 
@@ -541,6 +540,7 @@ class Tree extends React.Component<TreeProps, TreeState> {
                 <Node
                   key={'node-' + i}
                   data={data}
+                  treeData={this.state.data}
                   position={{ x, y }}
                   parent={parent}
                   nodeClassName={this.getNodeClassName(parent, data)}
